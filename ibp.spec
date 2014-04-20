@@ -1,8 +1,3 @@
-#
-# Conditional build:
-%bcond_without	apidocs		# do not build and package API docs
-%bcond_without	static_libs	# don't build static libraries
-#
 Summary:	Internet Backplane Protocol libraries
 Summary(pl.UTF-8):	Biblioteki protokołu Internet Backplane Protocol
 Name:		ibp
