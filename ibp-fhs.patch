@@ -1,0 +1,33 @@
+--- ibp-1.4.0.6/etc/Makefile.am.orig	2007-01-19 05:06:53.000000000 +0100
++++ ibp-1.4.0.6/etc/Makefile.am	2014-04-19 23:06:59.728552938 +0200
+@@ -4,7 +4,7 @@
+ IBP_ETC = ibp.cfg nfu.cfg
+ endif
+ 
+-etcdir=@prefix@/etc
++etcdir=@sysconfdir@
+ etc_DATA = $(IBP_ETC) 
+ 
+ EXTRA_DIST = ibp.cfg.in nfu.cfg.in
+--- ibp-1.4.0.6/etc/ibp.cfg.in.orig	2007-01-19 05:06:53.000000000 +0100
++++ ibp-1.4.0.6/etc/ibp.cfg.in	2014-04-20 07:38:38.781246407 +0200
+@@ -74,7 +74,7 @@
+ # HOSTNAME rod.cs.utk.edu
+ 
+ # NFUCFGFILE define the NFU configuration file name.
+- NFUCFGFILE  @prefix@/etc/nfu.cfg
++ NFUCFGFILE  @sysconfdir@/nfu.cfg
+ 
+ # THREADS define the number of the statically allocated threads in 
+ # mutli-thread ibp server
+--- ibp-1.4.0.6/src/ibp_server_lib.c.orig	2008-08-31 04:43:59.000000000 +0200
++++ ibp-1.4.0.6/src/ibp_server_lib.c	2014-04-20 07:43:47.931239964 +0200
+@@ -4541,7 +4541,7 @@
+   fprintf(stderr,"Done\n");
+ 
+   if ((gc_cfgpath[0] == '\0') && ( gc_cfgname[0] == '\0')) {
+-    strcpy (gc_cfgpath, "/home/yong/projects/ibp-1.4.0.alpha/local/etc/");
++    strcpy (gc_cfgpath, "/etc/");
+   }
+   if (gc_cfgname[0] == '\0') {
+     strcpy (gc_cfgname, "ibp.cfg");

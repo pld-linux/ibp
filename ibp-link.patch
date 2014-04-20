@@ -1,0 +1,13 @@
+--- ibp-1.4.0.6/configure.in.orig	2008-05-28 21:26:42.000000000 +0200
++++ ibp-1.4.0.6/configure.in	2014-04-19 23:18:19.315205441 +0200
+@@ -47,8 +47,8 @@
+ AC_CHECK_LIB(c_r,pthread_create)
+ AC_CHECK_LIB(socket, connect)
+ AC_CHECK_LIB(getpagesize,c)
+-AC_CHECK_LIB(nsl,getaddrinfo)
+-AC_CHECK_LIB(nsl,gethostbyname)
++AC_SEARCH_LIBS(getaddrinfo,nsl)
++AC_SEARCH_LIBS(gethostbyname,nsl)
+ AC_CHECK_LIB(ssl,SSL_free)
+ AC_CHECK_LIB(crypto,X509_NAME_get_text_by_NID)
+ AC_CHECK_LIB(m,pow)
